@@ -1,0 +1,22 @@
+{
+    "name": "ealore/dateinterval",
+    "description": "This class extends PHP's \\DateInterval class providing weeks+days and negative spec support",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrea Bergamasco",
+            "email": "abergamasco@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ealore\\DateInterval\\": "src"
+        }
+    }
+}
