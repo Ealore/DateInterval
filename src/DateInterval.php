@@ -8,7 +8,7 @@ class DateInterval extends \DateInterval
      * @param string $interval_spec
      * @return void
      */
-    public function __construct(string $interval_spec)
+    public function __construct($interval_spec)
     {
         $invert = 0;
 
