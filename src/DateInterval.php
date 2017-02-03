@@ -4,6 +4,8 @@ namespace Ealore\DateInterval;
 
 class DateInterval extends \DateInterval
 {
+    public $w = 0;
+
    /**
      * @param string $interval_spec
      * @return void
