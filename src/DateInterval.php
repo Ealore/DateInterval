@@ -42,6 +42,7 @@ class DateInterval extends \DateInterval
     } // __construct
 
     /**
+     * Returns an instance of the legacy PHP \DateInteval class
      * @return \DateTime
      */
     public function legacy()
