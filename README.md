@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Ealore/DateInterval.svg?branch=master)](https://travis-ci.org/Ealore/DateInterval)
+
 # Ealore\DateInterval
 
 This is an extension of PHP's \DateInterval with new methods and support for interval specification with both weeks and days at the same time.
