@@ -1,8 +1,9 @@
 <?php
+namespace Tests;
 
 use Ealore\DateInterval\DateInterval;
 
-class DateIntervalTest extends PHPUnit_Framework_TestCase
+class DateIntervalTest extends \PHPUnit_Framework_TestCase
 {
     public function testDateIntervalConstructorYear()
     {
@@ -165,5 +166,17 @@ class DateIntervalTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0, $legacy_interval->w);
         $this->assertEquals(7, $legacy_interval->d);
         $this->assertEquals(1, $legacy_interval->invert);
+    }
+
+    public function testGetIntervalSpec()
+    {
+        $date_interval = new DateInterval('P1Y2M3W4DT5H6M7S');
+        $this->assertEquals('P1Y2M3W4DT5H6M7S', $date_interval->getIntervalSpec());
+    }
+
+    public function testGetNegativeIntervalSpec()
+    {
+        $date_interval = new DateInterval('-P1Y2M3W4DT5H6M7S');
+        $this->assertEquals('-P1Y2M3W4DT5H6M7S', $date_interval->getIntervalSpec());
     }
 }

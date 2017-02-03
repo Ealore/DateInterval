@@ -13,16 +13,14 @@ class DateInterval extends \DateInterval
         $invert = 0;
 
         if ($interval_spec != '' && $interval_spec[0] == '-') {
-
             $invert = 1;
-
             $interval_spec = substr($interval_spec, 1);
         }
 
         parent::__construct($interval_spec);
 
-        // weeks are defined
         if (stristr($interval_spec, 'W')) {
+            // weeks are defined
             preg_match('/.*(?P<weeks>\d+)W.*/', $interval_spec, $matches);
             $this->w = $matches['weeks'];
 
@@ -35,7 +33,6 @@ class DateInterval extends \DateInterval
                 // days are not defined, reset
                 $this->d = 0;
             }
-
         }
 
         $this->invert = $invert;
@@ -56,4 +53,29 @@ class DateInterval extends \DateInterval
 
         return $legacy;
     } // getLegacyInterval()
+
+    /**
+     * Returns the interval specification string
+     *
+     * @return string
+     */
+    public function getIntervalSpec()
+    {
+         $interval_spec = $this->invert ? '-' : '';
+
+         $interval_spec .= 'P';
+
+         $interval_spec .= $this->y ? "{$this->y}Y" : '';
+         $interval_spec .= $this->m ? "{$this->m}M" : '';
+         $interval_spec .= $this->w ? "{$this->w}W" : '';
+         $interval_spec .= $this->d ? "{$this->d}D" : '';
+
+        $interval_spec .= ($this->h || $this->i || $this->s) ? 'T' : '';
+
+        $interval_spec .= $this->h ? "{$this->h}H" : '';
+        $interval_spec .= $this->i ? "{$this->i}M" : '';
+        $interval_spec .= $this->s ? "{$this->s}S" : '';
+
+        return $interval_spec;
+    }
 }
