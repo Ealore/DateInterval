@@ -179,4 +179,17 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
         $date_interval = new DateInterval('-P1Y2M3W4DT5H6M7S');
         $this->assertEquals('-P1Y2M3W4DT5H6M7S', $date_interval->getIntervalSpec());
     }
+
+    public function testGetIntervalSpecZero()
+    {
+        $date_interval = new DateInterval('P0D');
+        $this->assertEquals('P0D', $date_interval->getIntervalSpec());
+        $this->assertEquals(0, $date_interval->y);
+        $this->assertEquals(0, $date_interval->m);
+        $this->assertEquals(0, $date_interval->w);
+        $this->assertEquals(0, $date_interval->d);
+        $this->assertEquals(0, $date_interval->h);
+        $this->assertEquals(0, $date_interval->i);
+        $this->assertEquals(0, $date_interval->s);
+    }
 }

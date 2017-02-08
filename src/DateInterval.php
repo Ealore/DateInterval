@@ -5,6 +5,7 @@ namespace Ealore\DateInterval;
 class DateInterval extends \DateInterval
 {
     public $w = 0;
+    public $interval_spec = '';
 
    /**
      * @param string $interval_spec
@@ -13,6 +14,7 @@ class DateInterval extends \DateInterval
     public function __construct($interval_spec)
     {
         $invert = 0;
+        $this->interval_spec = $interval_spec;
 
         if ($interval_spec != '' && $interval_spec[0] == '-') {
             $invert = 1;
@@ -78,6 +80,6 @@ class DateInterval extends \DateInterval
         $interval_spec .= $this->i ? "{$this->i}M" : '';
         $interval_spec .= $this->s ? "{$this->s}S" : '';
 
-        return $interval_spec;
+        return $interval_spec == 'P' ? $this->interval_spec : $interval_spec;
     }
 }
