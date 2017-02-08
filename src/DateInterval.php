@@ -14,6 +14,7 @@ class DateInterval extends \DateInterval
     public function __construct($interval_spec)
     {
         $invert = 0;
+        $interval_spec = trim(strtoupper($interval_spec));
         $this->interval_spec = $interval_spec;
 
         if ($interval_spec != '' && $interval_spec[0] == '-') {
@@ -65,9 +66,7 @@ class DateInterval extends \DateInterval
      */
     public function getIntervalSpec()
     {
-         $interval_spec = $this->invert ? '-' : '';
-
-         $interval_spec .= 'P';
+         $interval_spec = $this->invert ? '-P' : 'P';
 
          $interval_spec .= $this->y ? "{$this->y}Y" : '';
          $interval_spec .= $this->m ? "{$this->m}M" : '';
@@ -80,6 +79,6 @@ class DateInterval extends \DateInterval
         $interval_spec .= $this->i ? "{$this->i}M" : '';
         $interval_spec .= $this->s ? "{$this->s}S" : '';
 
-        return $interval_spec == 'P' ? $this->interval_spec : $interval_spec;
+        return ($interval_spec == 'P' || $interval_spec == '-P') ? $this->interval_spec : $interval_spec;
     }
 }
