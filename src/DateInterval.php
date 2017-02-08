@@ -15,6 +15,7 @@ class DateInterval extends \DateInterval
     {
         $invert = 0;
         $interval_spec = trim(strtoupper($interval_spec));
+
         $this->interval_spec = $interval_spec;
 
         if ($interval_spec != '' && $interval_spec[0] == '-') {
