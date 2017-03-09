@@ -192,4 +192,17 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $date_interval->i);
         $this->assertEquals(0, $date_interval->s);
     }
+
+    public function testWithNullInterval()
+    {
+        $date_interval = new DateInterval('PYMWDTHMS');
+        $this->assertEquals('PYMWDTHMS', $date_interval->getIntervalSpec());
+        $this->assertEquals(0, $date_interval->y);
+        $this->assertEquals(0, $date_interval->m);
+        $this->assertEquals(0, $date_interval->w);
+        $this->assertEquals(0, $date_interval->d);
+        $this->assertEquals(0, $date_interval->h);
+        $this->assertEquals(0, $date_interval->i);
+        $this->assertEquals(0, $date_interval->s);
+    }
 }

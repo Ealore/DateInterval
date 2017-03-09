@@ -23,6 +23,10 @@ class DateInterval extends \DateInterval
             $interval_spec = substr($interval_spec, 1);
         }
 
+        if ($interval_spec == 'PYMWDTHMS') {
+            $interval_spec = 'P0Y0M0W0DT0H0M0S';
+        }
+
         parent::__construct($interval_spec);
 
         if (stristr($interval_spec, 'W')) {

@@ -39,6 +39,12 @@ This is an extension of PHP's \DateInterval with new methods and support for int
 
 ## Changelog
 
+version 1.0.3
+- added a check to avoid an 'unknown or bad format' exception
+
+version 1.0.2
+- bugfix
+
 version 1.0.1
 - added a check to getIntervalSpec()
 
