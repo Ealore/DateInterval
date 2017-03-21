@@ -32,13 +32,13 @@ class DateInterval extends \DateInterval
         if (stristr($interval_spec, 'W')) {
             // weeks are defined
             preg_match('/.*(?P<weeks>\d+)W.*/', $interval_spec, $matches);
-            $this->w = $matches['weeks'];
+            $this->w = (int) $matches['weeks'];
 
             // days are defined too
             if (stristr($interval_spec, 'D')) {
                 preg_match('/.*(?P<weeks>\d+)W(?P<days>\d+)D.*/', $interval_spec, $matches);
-                    $this->w = $matches['weeks'];
-                    $this->d = $matches['days'];
+                    $this->w = (int) $matches['weeks'];
+                    $this->d = (int) $matches['days'];
             } else {
                 // days are not defined, reset
                 $this->d = 0;
@@ -56,9 +56,7 @@ class DateInterval extends \DateInterval
     {
         $legacy = unserialize(serialize($this));
 
-        // var_dump($legacy);
-
-        $legacy->d = $this->d + ($this->w * 7);
+        $legacy->d = (int) $this->d + ($this->w * 7);
         $legacy->w = 0;
 
         return $legacy;
