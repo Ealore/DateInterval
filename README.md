@@ -2,29 +2,32 @@
 
 # Ealore\DateInterval
 
-This is an extension of PHP's \DateInterval with new methods and support for interval specification with both weeks and days at the same time.
+This is an extension of PHP's \DateInterval with new methods and support for interval specification with both weeks and days at the same time, while in the standard implementation it's possible to use either.
 
 ## Usage
-
+````php
 	<?php
 
 	use Ealore\DateInterval;
 
 	$interval = new DateInterval('P5W1D');
-	// it is possible to specify both weeks and days at the same time
+	// with this implementation it is possible to specify both weeks and days in the same specification string
 
 	echo $interval->w; // outputs 5
 	echo $interval->d; // outputs 1
-
+````
 ### legacy() returns an instance compatible with PHP's \DateInterval
 
+````php
 	$legacy = $di->legacy();
 
 	echo $legacy->w; // outputs 0
 	echo $legacy->d; // outputs 36
+````
 
 ### getIntervalSpec() returns the interval specification string
 
+````php
     $interval = new DateInterval('P5W1D');
 
     echo $interval->getIntervalSpec(); // outputs P5W1D
@@ -32,10 +35,13 @@ This is an extension of PHP's \DateInterval with new methods and support for int
     $zero_interval = new DateInterval('P0D');
 
     echo $interval->getIntervalSpec(); // outputs P0D
+````
 
 ## Installation
 
-    composer require ealore/dateinterval
+````bash
+    $ composer require ealore/dateinterval
+````
 
 ## Changelog
 
