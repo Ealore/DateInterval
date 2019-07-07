@@ -6,41 +6,42 @@ This is an extension of PHP's \DateInterval with new methods and support for int
 
 ## Usage
 ````php
-	<?php
+<?php
 
-	use Ealore\DateInterval;
+use Ealore\DateInterval;
 
-	$interval = new DateInterval('P5W1D');
-	// with this implementation it is possible to specify both weeks and days in the same specification string
+$interval = new DateInterval('P5W1D');
+// with this implementation it is possible to specify both weeks and days in the same specification string
 
-	echo $interval->w; // outputs 5
-	echo $interval->d; // outputs 1
+echo $interval->w; // outputs 5
+echo $interval->d; // outputs 1
 ````
 ### legacy() returns an instance compatible with PHP's \DateInterval
 
 ````php
-	$legacy = $di->legacy();
+$legacy = $di->legacy();
 
-	echo $legacy->w; // outputs 0
-	echo $legacy->d; // outputs 36
+echo $legacy->w; // outputs 0
+echo $legacy->d; // outputs 36
 ````
 
 ### getIntervalSpec() returns the interval specification string
 
 ````php
-    $interval = new DateInterval('P5W1D');
+$interval = new DateInterval('P5W1D');
 
-    echo $interval->getIntervalSpec(); // outputs P5W1D
+echo $interval->getIntervalSpec(); // outputs P5W1D
 
-    $zero_interval = new DateInterval('P0D');
 
-    echo $interval->getIntervalSpec(); // outputs P0D
+$zero_interval = new DateInterval('P0D');
+
+echo $interval->getIntervalSpec(); // outputs P0D
 ````
 
 ## Installation
 
 ````bash
-    $ composer require ealore/dateinterval
+$ composer require ealore/dateinterval
 ````
 
 ## Changelog
